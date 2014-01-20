@@ -21,7 +21,7 @@ end
 include_recipe 'concrete5::apache2'
 include_recipe 'concrete5::mysql'
 
-directory node['concrete5']['core'] do
+directory node['concrete5']['install_path'] do
   user   node[:apache][:user]
   group  node[:apache][:group]
   mode   0755
@@ -38,7 +38,7 @@ remote_file File.join(node[:concrete5][:cli_dir], 'install-concrete5.php') do
   action :create_if_missing
 end
 
-git node['concrete5']['core'] do
+git node['concrete5']['install_path'] do
     repository  node[:concrete5][:git_repository]
     revision    node[:concrete5][:git_revision]
     user        node[:apache][:user]
@@ -46,7 +46,7 @@ git node['concrete5']['core'] do
     action      :checkout
 end
 
-template File.join(node[:concrete5][:core], 'config.php') do
+template File.join(node[:concrete5][:install_path], 'config.php') do
   source "config.php.erb"
   owner node[:apache][:user]
   group node[:apache][:group]
@@ -59,9 +59,9 @@ template File.join(node[:concrete5][:core], 'config.php') do
     :admin_email     => node[:concrete5][:admin][:email],
     :admin_pass      => node[:concrete5][:admin][:password],
     :starting_point  => node[:concrete5][:starting_point],
-    :target          => File.join(node[:concrete5][:core], 'web'),
+    :target          => File.join(node[:concrete5][:install_path], 'web'),
     :site            => node[:concrete5][:site],
-    :core            => File.join(node[:concrete5][:core], 'web', 'concrete'),
+    :core            => File.join(node[:concrete5][:install_path], 'web', 'concrete'),
     :reinstall       => node[:concrete5][:reinstall],
     :demo_username   => node[:concrete5][:demo][:user_name],
     :demo_password   => node[:concrete5][:demo][:password],
@@ -73,10 +73,10 @@ end
 bash "concrete5-install" do
   user  node[:apache][:user]
   group node[:apache][:group]
-  cwd   node[:concrete5][:core]
+  cwd   node[:concrete5][:install_path]
   code <<-EOH
     #{File.join(node[:concrete5][:cli_dir], 'install-concrete5.php')} \\
-    --config=#{File.join(node[:concrete5][:core], 'config.php')}
+    --config=#{File.join(node[:concrete5][:install_path], 'config.php')}
   EOH
 end
 

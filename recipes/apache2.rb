@@ -19,7 +19,7 @@ template "/etc/php5/apache2/conf.d/concrete5.ini" do
   notifies :restart, "service[apache2]"
 end
 
-directory node['concrete5']['core'] do
+directory node[:concrete5][:install_path] do
   user   node[:apache][:user]
   group  node[:apache][:group]
   mode   0755
@@ -28,8 +28,8 @@ end
 
 web_app "concrete5" do
   template "concrete5.conf.erb"
-  docroot File.join(node['concrete5']['core'], 'web')
-  server_name node['fqdn']
+  docroot File.join(node[:concrete5][:install_path], 'web')
+  server_name node[:fqdn]
   notifies :restart, "service[apache2]"
 end
 

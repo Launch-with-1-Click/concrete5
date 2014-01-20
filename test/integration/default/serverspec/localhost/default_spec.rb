@@ -26,6 +26,7 @@ describe port(80) do
   it { should be_listening }
 end
 
-describe command("wget -q http://localhost/sandbox -O - | head -100 | grep generator") do
+describe command("wget -q http://localhost/ -O - | head -100 | grep generator") do
   it { should return_stdout /concrete5/ }
 end
+

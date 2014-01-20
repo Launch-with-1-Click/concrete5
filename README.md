@@ -1,45 +1,82 @@
-concrete5 Cookbook
+Concrete5 Cookbook
 ==================
-TODO: Enter the cookbook description here.
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+The Chef Concrete5 cookbook installs and configures with LAMP.
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
 
-e.g.
-#### packages
-- `toaster` - concrete5 needs toaster to brown your bagel.
+### Platform
+
+* Ubuntu
+* RHEL/CentOS
+
+### Cookbooks
+
+* apache2
+* mysql
+* php
 
 Attributes
 ----------
 TODO: List you cookbook attributes here.
 
-e.g.
 #### concrete5::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['concrete5']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+
+* `node[:concrete5][:git_repository]`
+    * Git repository of Concrete5 core.
+    * Default: `https://github.com/concrete5/concrete5.git`
+* `node[:concrete5][:git_revision]`
+    * Concrete5 core git revisoion or release or branch.
+    * Default: `5.6.2.1`
+* `node[:concrete5][:cli_url]`
+    * URL of install-concrete5.php.
+    * Default: `https://raw2.github.com/concrete5/concrete5/master/cli/install-concrete5.php`
+* `node[:concrete5][:cli_dir]`
+    * Install path of install-concrete5.php.
+    * Default: `/usr/share/concrete5`
+* `node[:concrete5][:db][:name]`
+    * Concrete5 database name.
+    * Default: `concrete5`
+* `node[:concrete5][:db][:user]`
+    * Concrete5 database user.
+    * Default: `concrete5`
+* `node[:concrete5][:db][:pass]`
+    * Concrete5 database password.
+    * Default: `nil`
+* `node[:concrete5][:db][:host]`
+    * Location of database server.
+    * Default: `localhost`
+* `node[:concrete5][:admin][:email]`
+    * Email of the admin user of the install.
+    * Default: `admin@example.com`
+* `node[:concrete5][:admin][:password]`
+    * Password of the admin user of the install.
+    * Default: `concrete5`
+* `node[:concrete5][:site]`
+    * Name of the site.
+    * Default: `Concrete5 Site`
+* `node[:concrete5][:install_path]`
+    * Target path of the install.
+    * Default: `no`
+* `node[:concrete5][:reinstall]`
+    * If already installed at the target location, delete current install and reinstall.
+    * Default: `no`
+* `node[:concrete5][:demo][:user_name]`
+    * Additional user username.
+    * Default: `demo`
+* `node[:concrete5][:demo][:password]`
+    * Additional user password.
+    * Default: `12345`
+* `node[:concrete5][:demo][:email]`
+    * Additional user email.
+    * Default: `demo@example.com`
+
 
 Usage
 -----
 #### concrete5::default
-TODO: Write usage instructions for each cookbook.
 
-e.g.
 Just include `concrete5` in your node's `run_list`:
 
 ```json
@@ -53,9 +90,7 @@ Just include `concrete5` in your node's `run_list`:
 
 Contributing
 ------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
 
-e.g.
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
 3. Write your change
@@ -63,6 +98,25 @@ e.g.
 5. Run the tests, ensuring they all pass
 6. Submit a Pull Request using Github
 
-License and Authors
+License
 -------------------
-Authors: TODO: List authors
+
+Copyright:: 2010-2013, Chef Software, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+Contributors
+------------
+
+* @Launch-with-1-Click
+* @miya0001
