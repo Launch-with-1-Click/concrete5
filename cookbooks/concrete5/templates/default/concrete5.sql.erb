@@ -1,5 +1,0 @@
-CREATE DATABASE IF NOT EXISTS `<%= @dbname %>` DEFAULT CHARACTER SET utf8;
-
-GRANT ALL PRIVILEGES ON `<%= @dbname %>`.* TO '<%= @dbuser %>'@'<%= @dbhost %>' IDENTIFIED BY "<%= @dbpass %>" WITH GRANT OPTION;
-
-FLUSH PRIVILEGES;
