@@ -10,6 +10,10 @@ recipe "concrete5", "Installs and configures Concrete5 LAMP stack on a single sy
 recipe "concrete5::mysql", "Setup MySQL for the Concrete5"
 recipe "concrete5::apache2", "Setup Apache + PHP for the Concrete5"
 
+supports "centos"
+supports "redhat"
+supports "ubuntu"
+
 depends 'apt'
 depends 'apache2'
 depends 'mysql'
