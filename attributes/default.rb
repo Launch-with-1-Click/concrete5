@@ -14,7 +14,6 @@ default[:concrete5][:admin][:email]    = 'admin@example.com'
 default[:concrete5][:admin][:password] = 'concrete5'
 
 default[:concrete5][:starting_point] = 'blank'
-default[:concrete5][:target]         = ''
 default[:concrete5][:site]           = 'Concrete5 Site'
 default[:concrete5][:install_path]   = '/var/www/concrete5'
 default[:concrete5][:reinstall]      = 'no'
