@@ -53,6 +53,9 @@ TODO: List you cookbook attributes here.
 * `node[:concrete5][:admin][:password]`
     * Password of the admin user of the install.
     * Default: `concrete5`
+* `node[:concrete5][:starting_point]`
+    * Starting point to use.
+    * Default: `blank`
 * `node[:concrete5][:site]`
     * Name of the site.
     * Default: `Concrete5 Site`
