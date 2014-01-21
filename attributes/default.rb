@@ -38,8 +38,8 @@ when 'rhel', 'fedora'
     default['php']['packages'] = %w{ php php-devel php-cli php-pear php-mbstring }
   end
 when 'debian'
-  default['php']['packages']   = %w{ php5-cgi php5 php5-dev php5-cli php-pear }
+  default['php']['packages'] = %w{ php5-cgi php5 php5-dev php5-cli php-pear }
 else
-  default['php']['packages']      = %w{ php5-cgi php5 php5-dev php5-cli php-pear }
+  default['php']['packages'] = %w{ php5-cgi php5 php5-dev php5-cli php-pear }
 end
 
