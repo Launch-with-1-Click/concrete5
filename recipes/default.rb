@@ -8,6 +8,7 @@
 # Copyright 2014, DigitalCube, Inc.
 #
 
+include_recipe 'concrete5::swapfile'
 include_recipe "apt::default"
 
 packages = %w{git}
