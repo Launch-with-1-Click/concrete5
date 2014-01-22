@@ -7,6 +7,8 @@ provisioner:
 
 platforms:
   - name: ubuntu-12.04
+    run_list:
+      - apt::default
   - name: centos-6.4
 
 suites:
@@ -18,10 +20,6 @@ suites:
             server_debian_password: "1111"
             server_root_password:   "1111"
             server_repl_password:   "1111"
-  - name: apache
-    run_list:
-      - apt::default
-      - concrete5::apache2
   - name: swapon
     run_list:
       - test_swapon::micro
