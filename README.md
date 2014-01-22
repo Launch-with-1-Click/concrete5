@@ -122,4 +122,5 @@ Contributors
 ------------
 
 * @Launch-with-1-Click
-* @miya0001
+* [@miya0001](https://github.com/miya0001)
+* [@sawanoboly](https://github.com/sawanoboly)
