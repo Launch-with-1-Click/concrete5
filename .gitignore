@@ -1,6 +1,5 @@
 .vagrant
 cookbooks
-Berksfile.lock
 Gemfile.lock
 *~
 *#
@@ -15,3 +14,4 @@ bin
 .kitchen.local.yml
 .kitchen/
 *.swp
+Berksfile.lock

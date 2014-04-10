@@ -14,9 +14,9 @@ supports "centos"
 supports "redhat"
 supports "ubuntu"
 
-depends 'apt'
-depends 'apache2'
-depends 'mysql'
-depends 'php'
-depends 'swap'
+depends 'apt', '<= 2.3.8'
+depends 'apache2', '<= 1.9.6'
+depends 'mysql', '<= 4.1.2'
+depends 'php', '<= 1.4.6'
+depends 'swap', '<= 0.3.6'
 
