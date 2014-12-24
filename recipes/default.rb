@@ -72,6 +72,7 @@ template File.join(node[:concrete5][:install_path], 'config.php') do
     :target          => File.join(node[:concrete5][:install_path], 'web'),
     :site            => node[:concrete5][:site],
     :core            => File.join(node[:concrete5][:install_path], 'web', 'concrete'),
+    :locale          => node[:concrete5][:locale],
     :reinstall       => node[:concrete5][:reinstall],
     :demo_username   => node[:concrete5][:demo][:user_name],
     :demo_password   => node[:concrete5][:demo][:password],
