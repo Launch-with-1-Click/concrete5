@@ -4,17 +4,16 @@
 default[:concrete5][:git_repository] = 'https://github.com/concrete5/concrete5-5.7.0.git';
 default[:concrete5][:git_revision]   = '5.7.3';
 
-default[:concrete5][:cli_url]   = 'https://raw.githubusercontent.com/concrete5/concrete5-5.7.0/develop/cli/install-concrete5.php';
 default[:concrete5][:cli_dir]   = '/usr/share/concrete5';
+
+default[:concrete5][:composer][:home]         = '/home/vagrant/.composer'
+default[:concrete5][:composer][:install]    = 'curl -sS https://raw.githubusercontent.com/composer/getcomposer.org/master/web/installer | php'
+default[:concrete5][:composer][:link]       = '/usr/local/bin/composer'
 
 default[:concrete5][:db][:name] = "concrete5"
 default[:concrete5][:db][:user] = "concrete5"
 default[:concrete5][:db][:pass] = nil
 default[:concrete5][:db][:host] = 'localhost'
-
-default[:concrete5][:composer][:home]         = '/home/vagrant/.composer'
-default[:concrete5][:composer][:install]    = 'curl -sS https://raw.githubusercontent.com/composer/getcomposer.org/master/web/installer | php'
-default[:concrete5][:composer][:link]       = '/usr/local/bin/composer'
 
 default[:concrete5][:admin][:email]    = 'admin@example.com'
 default[:concrete5][:admin][:password] = 'concrete5'

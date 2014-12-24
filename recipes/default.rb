@@ -52,12 +52,6 @@ directory node[:concrete5][:cli_dir] do
   recursive true
 end
 
-remote_file File.join(node[:concrete5][:cli_dir], 'install-concrete5.php') do
-  source node[:concrete5][:cli_url]
-  mode 0755
-  action :create_if_missing
-end
-
 git node['concrete5']['install_path'] do
     repository  node[:concrete5][:git_repository]
     revision    node[:concrete5][:git_revision]
