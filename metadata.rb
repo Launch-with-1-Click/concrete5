@@ -19,4 +19,5 @@ depends 'apache2', '<= 1.9.6'
 depends 'mysql', '<= 4.1.2'
 depends 'php', '<= 1.4.6'
 depends 'swap', '<= 0.3.6'
+depends 'nodejs', '~> 2.2.0'
 

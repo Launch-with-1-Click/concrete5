@@ -13,15 +13,11 @@ require 'shellwords'
 
 include_recipe 'concrete5::swapfile'
 include_recipe "apt::default"
+include_recipe "nodejs::nodejs_from_binary"
+include_recipe "nodejs::npm"
 
 
-execute "node-source-setup" do
-    user   "root"
-    group  "root"
-    command "curl -sL https://deb.nodesource.com/setup | bash -"
-end
-
-packages = %w{git curl nodejs}
+packages = %w{git curl}
 
 packages.each do |pkg|
   package pkg do
