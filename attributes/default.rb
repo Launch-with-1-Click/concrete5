@@ -4,6 +4,7 @@
 default[:concrete5][:git_repository] = 'https://github.com/concrete5/concrete5-5.7.0.git';
 default[:concrete5][:git_revision]   = '5.7.3';
 default[:concrete5][:locale]   = 'en_US';
+default[:concrete5][:translations_repo_dir]   = 'https://raw.githubusercontent.com/concrete5/concrete5-translations/master/core-dev-57/';
 
 default[:concrete5][:cli_dir]   = '/usr/share/concrete5';
 

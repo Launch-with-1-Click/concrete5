@@ -110,11 +110,25 @@ if node[:concrete5][:git_revision].to_f >= 5.7
     command "composer install"
   end
 
-  # if node['platform_family'] == "debian"
-  #   package "nodejs-legacy" do
-  #     action [:install, :upgrade]
-  #   end
-  # end
+
+  [
+    File.join(node[:concrete5][:install_path], 'web/application/languages'),
+    File.join(node[:concrete5][:install_path], 'web/application/languages', node[:concrete5][:locale]),
+    File.join(node[:concrete5][:install_path], 'web/application/languages', node[:concrete5][:locale], "LC_MESSAGES" )
+  ].each do |path|
+    directory path do
+      user   node[:apache][:user]
+      group  node[:apache][:group]
+      mode   0755
+      action :create
+    end
+  end
+
+  remote_file File.join(node[:concrete5][:install_path], 'web/application/language', node[:concrete5][:locale], "LC_MESSAGES", "messages.mo" ) do
+    source File.join(node[:concrete5][:translations_repo_dir], "#{node[:concrete5][:locale]}.mo")
+    mode 0644
+    action :create
+  end
 
   execute "grunt-install" do
     user   "root"
