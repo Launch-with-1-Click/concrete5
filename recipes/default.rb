@@ -21,7 +21,7 @@ execute "node-source-setup" do
     command "curl -sL https://deb.nodesource.com/setup | bash -"
 end
 
-packages = %w{git curl npm}
+packages = %w{git curl nodejs}
 
 packages.each do |pkg|
   package pkg do
@@ -119,11 +119,11 @@ if node[:concrete5][:git_revision].to_f >= 5.7
     command "composer install"
   end
 
-  if node['platform_family'] == "debian"
-    package "nodejs-legacy" do
-      action [:install, :upgrade]
-    end
-  end
+  # if node['platform_family'] == "debian"
+  #   package "nodejs-legacy" do
+  #     action [:install, :upgrade]
+  #   end
+  # end
 
   execute "grunt-install" do
     user   "root"
