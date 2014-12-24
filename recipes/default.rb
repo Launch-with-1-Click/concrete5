@@ -124,7 +124,7 @@ if node[:concrete5][:git_revision].to_f >= 5.7
     end
   end
 
-  remote_file File.join(node[:concrete5][:install_path], 'web/application/language', node[:concrete5][:locale], "LC_MESSAGES", "messages.mo" ) do
+  remote_file File.join(node[:concrete5][:install_path], 'web/application/languages', node[:concrete5][:locale], "LC_MESSAGES", "messages.mo" ) do
     source File.join(node[:concrete5][:translations_repo_dir], "#{node[:concrete5][:locale]}.mo")
     mode 0644
     action :create
