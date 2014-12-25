@@ -110,7 +110,7 @@ if node[:concrete5][:git_revision].to_f >= 5.7
     command "composer install"
   end
 
-  if node[:concrete5][:locale] && node[:concrete5][:locale] != "en_US"
+  if !node[:concrete5][:locale].empty? && node[:concrete5][:locale] != "en_US"
 
     [
       File.join(node[:concrete5][:install_path], 'web/application/languages'),
