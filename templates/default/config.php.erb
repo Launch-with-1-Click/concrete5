@@ -1,6 +1,6 @@
 <?php
 
-$config = array(
+$config = $cliconfig = array(
         "db-server"      => "<%= @dbhost %>",
         "db-username"    => "<%= @dbuser %>",
         "db-password"    => "<%= @dbpass %>",
@@ -11,10 +11,9 @@ $config = array(
         "target"         => "<%= @target %>",
         "site"           => "<%= @site %>",
         "core"           => "<%= @core %>",
+        "default-locale" => "<%= @locale %>",
         "reinstall"      => "<%= @reinstall %>",
         "demo-username"  => "<%= @demo_username %>",
         "demo-password"  => "<%= @demo_password %>",
         "demo-email"     => "<%= @demo_email %>"
 );
-
-
