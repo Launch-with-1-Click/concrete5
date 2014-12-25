@@ -101,6 +101,13 @@ Contributing
 5. Run the tests, ensuring they all pass
 6. Submit a Pull Request using Github
 
+## Running tests
+
+```
+$ bundle install
+$ bundle exec kitchen test
+```
+
 License
 -------------------
 
