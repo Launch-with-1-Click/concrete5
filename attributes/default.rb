@@ -8,7 +8,7 @@ default[:concrete5][:translations_repo_dir]   = 'https://raw.githubusercontent.c
 
 default[:concrete5][:cli_dir]   = '/usr/share/concrete5';
 
-default[:concrete5][:composer][:install]    = 'curl -sS https://raw.githubusercontent.com/composer/getcomposer.org/master/web/installer | php'
+default[:concrete5][:composer][:install]    = 'curl -sS https://getcomposer.org/installer | php'
 default[:concrete5][:composer][:link]       = '/usr/local/bin/composer'
 
 default[:concrete5][:db][:name] = "concrete5"

@@ -81,8 +81,17 @@ template File.join(node[:concrete5][:install_path], 'config.php') do
   action :create_if_missing
 end
 
+
+#
+# concrete5 5.7
+#
+
 if node[:concrete5][:git_revision].to_f >= 5.7
 
+
+  #
+  # Setup composer
+  #
 
   directory File.join(node[:concrete5][:cli_dir], 'composer') do
     recursive true
@@ -111,6 +120,11 @@ if node[:concrete5][:git_revision].to_f >= 5.7
     command "composer install"
   end
 
+
+  #
+  # Download Translation
+  #
+
   if !node[:concrete5][:locale].empty? && node[:concrete5][:locale] != "en_US"
 
     [
@@ -134,6 +148,11 @@ if node[:concrete5][:git_revision].to_f >= 5.7
 
   end
 
+
+  #
+  # Setup npm
+  #
+
   directory "/home/" + node[:apache][:user] + "/.npm"  do
     user  node[:apache][:user]
     group node[:apache][:group]
@@ -147,6 +166,11 @@ if node[:concrete5][:git_revision].to_f >= 5.7
     group  "root"
     command "npm -g install npm@latest"
   end
+
+
+  #
+  # Setup grunt
+  #
 
   execute "grunt-install" do
     user   "root"
@@ -162,7 +186,13 @@ if node[:concrete5][:git_revision].to_f >= 5.7
     command "npm install"
   end
 
-end
+end # end for 5.7
+
+
+
+#
+# execute install script concrete5
+#
 
 bash "concrete5-install" do
   user  node[:apache][:user]
