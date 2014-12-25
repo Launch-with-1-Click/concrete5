@@ -13,7 +13,7 @@ require 'shellwords'
 
 include_recipe 'concrete5::swapfile'
 include_recipe "apt::default"
-include_recipe "nodejs::nodejs_from_binary"
+include_recipe "nodejs::nodejs_from_package"
 include_recipe "nodejs::npm"
 
 
@@ -83,6 +83,7 @@ end
 
 if node[:concrete5][:git_revision].to_f >= 5.7
 
+
   directory File.join(node[:concrete5][:cli_dir], 'composer') do
     recursive true
   end
@@ -97,7 +98,7 @@ if node[:concrete5][:git_revision].to_f >= 5.7
     to File.join(node[:concrete5][:cli_dir], 'composer/composer.phar')
   end
 
-  directory node[:concrete5][:composer][:home] do
+  directory "/home/" + node[:apache][:user] + "/.composer"  do
     user  node[:apache][:user]
     group node[:apache][:group]
     recursive true
@@ -133,19 +134,32 @@ if node[:concrete5][:git_revision].to_f >= 5.7
 
   end
 
+  directory "/home/" + node[:apache][:user] + "/.npm"  do
+    user  node[:apache][:user]
+    group node[:apache][:group]
+    recursive true
+    action :create
+    mode 0755
+  end
+
+  execute "npm-update" do
+    user   "root"
+    group  "root"
+    command "npm -g install npm@latest"
+  end
+
   execute "grunt-install" do
     user   "root"
     group  "root"
     command "npm install grunt-cli -g"
   end
 
-  bash "npm-install" do
-    user   "vagrant"
-    group  "vagrant"
+  execute "npm-install" do
+    user  node[:apache][:user]
+    group node[:apache][:group]
     environment 'HOME' => '/home/' + node[:apache][:user]
-    cwd "/var/www/concrete5/build"
     cwd File.join(node[:concrete5][:install_path], 'build')
-    code "npm install"
+    command "npm install"
   end
 
 end
