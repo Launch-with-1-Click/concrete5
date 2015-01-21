@@ -25,16 +25,25 @@ TODO: List you cookbook attributes here.
 
 * `node[:concrete5][:git_repository]`
     * Git repository of Concrete5 core.
-    * Default: `https://github.com/concrete5/concrete5.git`
+    * Default: `https://github.com/concrete5/concrete5-5.7.0.git`
 * `node[:concrete5][:git_revision]`
     * Concrete5 core git revisoion or release or branch.
-    * Default: `5.6.2.1`
-* `node[:concrete5][:cli_url]`
-    * URL of install-concrete5.php.
-    * Default: `https://raw2.github.com/concrete5/concrete5/master/cli/install-concrete5.php`
+    * Default: `5.7.3`
+* `node[:concrete5][:locale]`
+    * Concrete5 locale.
+    * Default: `en_US`
+* `node[:concrete5][:translations_repo_dir]`
+    * Concrete5 translation file source.
+    * Default: `https://raw.githubusercontent.com/concrete5/concrete5-translations/master/core-dev-57/`
 * `node[:concrete5][:cli_dir]`
     * Install path of install-concrete5.php.
-    * Default: `/usr/share/concrete5`
+    * Default: `/usr/share/concrete5`    
+* `node[:concrete5][:composer][:install]`
+    * composer install commands.
+    * Default: `curl -sS https://getcomposer.org/installer | php`
+* `node[:concrete5][:composer][:link]`
+    * composer install path.
+    * Default: `/usr/local/bin/composer`
 * `node[:concrete5][:db][:name]`
     * Concrete5 database name.
     * Default: `concrete5`
@@ -55,7 +64,7 @@ TODO: List you cookbook attributes here.
     * Default: `concrete5`
 * `node[:concrete5][:starting_point]`
     * Starting point to use.
-    * Default: `blank`
+    * Default: `elemental_blank`
 * `node[:concrete5][:site]`
     * Name of the site.
     * Default: `Concrete5 Site`
