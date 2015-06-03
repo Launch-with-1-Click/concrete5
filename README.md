@@ -25,10 +25,10 @@ TODO: List you cookbook attributes here.
 
 * `node[:concrete5][:git_repository]`
     * Git repository of Concrete5 core.
-    * Default: `https://github.com/concrete5/concrete5-5.7.0.git`
+    * Default: `https://github.com/concrete5/concrete5.git`
 * `node[:concrete5][:git_revision]`
     * Concrete5 core git revisoion or release or branch.
-    * Default: `5.7.3`
+    * Default: `5.7.4.2`
 * `node[:concrete5][:locale]`
     * Concrete5 locale.
     * Default: `en_US`
@@ -37,7 +37,7 @@ TODO: List you cookbook attributes here.
     * Default: `https://raw.githubusercontent.com/concrete5/concrete5-translations/master/core-dev-57/`
 * `node[:concrete5][:cli_dir]`
     * Install path of install-concrete5.php.
-    * Default: `/usr/share/concrete5`    
+    * Default: `/usr/share/concrete5`
 * `node[:concrete5][:composer][:install]`
     * composer install commands.
     * Default: `curl -sS https://getcomposer.org/installer | php`
@@ -140,3 +140,4 @@ Contributors
 * @Launch-with-1-Click
 * [@miya0001](https://github.com/miya0001)
 * [@sawanoboly](https://github.com/sawanoboly)
+* [@torounit](https://github.com/torounit)
